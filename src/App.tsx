@@ -2,14 +2,20 @@ import { useState } from "react";
 import "./App.css";
 import Game from "./Game/Game";
 import NavBar, { View } from "./NavBar/NavBar";
+import NewScore from "./NewScore/NewScore";
 import Team from "./Team/Team";
 
 function App() {
   const [view, setView] = useState<View>(View.Game);
+  const [score, setScore] = useState<number | null>(null);
 
   const handleEnd = (score: number) => {
-    console.log(score);
+    setScore(score);
     setView(View.NewScore);
+  };
+
+  const handleNewScore = () => {
+    setView(View.Leaderboard);
   };
 
   return (
@@ -21,7 +27,9 @@ function App() {
       <main>
         <Team>
           {view === View.Game && <Game onEnd={handleEnd} />}
-          {view === View.NewScore && "New Score"}
+          {view === View.NewScore && (
+            <NewScore score={score ?? 0} onSubmit={handleNewScore} />
+          )}
           {view === View.Leaderboard && "Leaderboard"}
         </Team>
       </main>
