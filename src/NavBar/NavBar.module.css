@@ -1,0 +1,26 @@
+.button {
+  border: 0 solid var(--highlight);
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  background: var(--bg);
+  font-size: 1rem;
+  padding: 0.4em 0.7em;
+  cursor: pointer;
+}
+
+.button:first-child {
+  border-left-width: 1px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.button:last-child {
+  border-right-width: 1px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.button.active {
+  background-color: #000;
+  background: var(--highlight);
+}
