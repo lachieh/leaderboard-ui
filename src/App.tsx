@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Game from "./Game/Game";
 import NavBar, { View } from "./NavBar/NavBar";
+import Team from "./Team/Team";
 
 function App() {
   const [view, setView] = useState<View>(View.Game);
@@ -18,9 +19,11 @@ function App() {
         <NavBar view={view} setView={setView} />
       </header>
       <main>
-        {view === View.Game && <Game onEnd={handleEnd} />}
-        {view === View.NewScore && "New Score"}
-        {view === View.Leaderboard && "Leaderboard"}
+        <Team>
+          {view === View.Game && <Game onEnd={handleEnd} />}
+          {view === View.NewScore && "New Score"}
+          {view === View.Leaderboard && "Leaderboard"}
+        </Team>
       </main>
       <footer>
         Made with ❤️ by <a href="https://cosmonic.com">Cosmonic</a>

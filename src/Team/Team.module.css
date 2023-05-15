@@ -1,0 +1,16 @@
+.Team {
+  margin: 2em auto;
+  font-size: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  font-size: inherit;
+}
+
+.Team button {
+  font-size: inherit;
+}
