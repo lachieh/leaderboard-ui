@@ -1,0 +1,20 @@
+.table {
+  margin: 2em 0;
+  width: 100%;
+  max-width: 640px;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 0.5rem;
+}
+
+.table thead tr {
+  border-bottom: 1px solid var(--text);
+}
+
+.table tbody tr {
+  border-top: 1px solid var(--highlight);
+}

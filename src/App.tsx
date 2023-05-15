@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./App.css";
 import Game from "./Game/Game";
+import Leaderboard from "./Leaderboard/Leaderboard";
 import NavBar, { View } from "./NavBar/NavBar";
 import NewScore from "./NewScore/NewScore";
 import Team from "./Team/Team";
@@ -30,7 +31,7 @@ function App() {
           {view === View.NewScore && (
             <NewScore score={score ?? 0} onSubmit={handleNewScore} />
           )}
-          {view === View.Leaderboard && "Leaderboard"}
+          {view === View.Leaderboard && <Leaderboard />}
         </Team>
       </main>
       <footer>
