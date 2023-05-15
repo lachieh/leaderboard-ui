@@ -32,6 +32,7 @@ const Team = ({ children }: PropsWithChildren) => {
     <div className={styles.Team}>
       {!team || edit ? (
         <form onSubmit={handleSubmit}>
+          <label htmlFor="team">Team: </label>
           <input
             aria-label="Team name"
             className={styles.input}
