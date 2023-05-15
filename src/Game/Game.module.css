@@ -1,0 +1,80 @@
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.status {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.gameBoard {
+  background-color: rgba(0 0 0 / 30%);
+}
+
+.target {
+  text-indent: -9999px;
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+  box-shadow: none;
+  border: none;
+  background-color: transparent;
+  height: 3rem;
+  width: 3rem;
+}
+
+.target:focus {
+  outline: none;
+}
+
+.target::before {
+  text-indent: 0;
+  content: '👾';
+  font-size: 3rem;
+  line-height: 1em;
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.intro {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+.intro button:hover {
+  border-color: #646cff;
+}
+.intro button:focus,
+.intro button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.intro span {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}

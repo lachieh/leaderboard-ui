@@ -1,9 +1,15 @@
 import { useState } from "react";
 import "./App.css";
+import Game from "./Game/Game";
 import NavBar, { View } from "./NavBar/NavBar";
 
 function App() {
   const [view, setView] = useState<View>(View.Game);
+
+  const handleEnd = (score: number) => {
+    console.log(score);
+    setView(View.NewScore);
+  };
 
   return (
     <>
@@ -12,7 +18,7 @@ function App() {
         <NavBar view={view} setView={setView} />
       </header>
       <main>
-        {view === View.Game && "Game"}
+        {view === View.Game && <Game onEnd={handleEnd} />}
         {view === View.NewScore && "New Score"}
         {view === View.Leaderboard && "Leaderboard"}
       </main>
