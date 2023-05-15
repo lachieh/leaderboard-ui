@@ -1,5 +1,6 @@
 .button {
   border: 0 solid var(--highlight);
+  border-radius: 0;
   border-top-width: 1px;
   border-bottom-width: 1px;
   background: var(--bg);
