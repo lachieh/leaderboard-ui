@@ -3,9 +3,6 @@ import styles from "./Team.module.css";
 import { API_URL, TEAM_NAME_KEY } from "../environment";
 
 const Team = ({ children }: PropsWithChildren) => {
-  const [edit, setEdit] = useState<boolean>(
-    window.localStorage.getItem(TEAM_NAME_KEY) ? false : true
-  );
   const [team, setTeam] = useState<string>(
     window.localStorage.getItem(TEAM_NAME_KEY) || ""
   );
@@ -21,7 +18,6 @@ const Team = ({ children }: PropsWithChildren) => {
           throw new Error("Team name already exists");
         }
         window.localStorage.setItem(TEAM_NAME_KEY, team);
-        setEdit(false);
       })
       .catch((error) => {
         alert(error);
@@ -30,7 +26,7 @@ const Team = ({ children }: PropsWithChildren) => {
 
   return (
     <div className={styles.Team}>
-      {!team || edit ? (
+      {!team && (
         <form onSubmit={handleSubmit}>
           <label htmlFor="team">Team: </label>
           <input
@@ -48,12 +44,8 @@ const Team = ({ children }: PropsWithChildren) => {
             Save
           </button>
         </form>
-      ) : (
-        <div>
-          Team: {team} <button onClick={() => setEdit(true)}>Edit</button>
-        </div>
       )}
-      {!edit && team && children}
+      {team && children}
     </div>
   );
 };

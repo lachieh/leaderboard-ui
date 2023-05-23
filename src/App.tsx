@@ -8,7 +8,7 @@ import Team from "./Team/Team";
 
 function App() {
   const [view, setView] = useState<View>(View.Game);
-  const [score, setScore] = useState<number | null>(null);
+  const [score, setScore] = useState<number>(0);
 
   const handleEnd = (score: number) => {
     setScore(score);
@@ -29,7 +29,7 @@ function App() {
         <Team>
           {view === View.Game && <Game onEnd={handleEnd} />}
           {view === View.NewScore && (
-            <NewScore score={score ?? 0} onSubmit={handleNewScore} />
+            <NewScore score={score} onSubmit={handleNewScore} />
           )}
           {view === View.Leaderboard && <Leaderboard />}
         </Team>
